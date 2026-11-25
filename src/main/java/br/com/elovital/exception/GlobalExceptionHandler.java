@@ -27,6 +27,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     private static final Logger log = LoggerFactory.getLogger(GlobalExceptionHandler.class);
 
+    @ExceptionHandler(CredenciaisInvalidasException.class)
+    public ProblemDetail credenciaisInvalidas(CredenciaisInvalidasException ex) {
+        return problema(HttpStatus.UNAUTHORIZED, "Não autorizado", ex.getMessage());
+    }
+
     @ExceptionHandler(RecursoNaoEncontradoException.class)
     public ProblemDetail recursoNaoEncontrado(RecursoNaoEncontradoException ex) {
         return problema(HttpStatus.NOT_FOUND, "Recurso não encontrado", ex.getMessage());

@@ -3,14 +3,14 @@ spring:
     name: elovital-backend
 
   datasource:
-    url: ${DB_URL:jdbc:postgresql://localhost:5432/elovital}
-    username: ${DB_USER:postgres}
-    password: ${DB_PASSWORD}   # defina nas variáveis de ambiente da Run Configuration
+    url: jdbc:postgresql://localhost:5432/elo-vital
+    username: postgres
+    password: Db@Obj.3213  # defina nas variáveis de ambiente da Run Configuration
 
   jpa:
     open-in-view: false        # evita consultas "escondidas" na camada de controller
     hibernate:
-      ddl-auto: validate       # o schema é criado pelo Flyway; o Hibernate só confere
+      ddl-auto: update       # o schema é criado pelo Flyway; o Hibernate só confere
     properties:
       hibernate:
         jdbc:
